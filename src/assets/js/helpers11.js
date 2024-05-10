@@ -112,21 +112,26 @@ export default {
     return {
       iceServers: [
         {
-          urls: ['stun:stun.relay.metered.ca:80'],
+          urls: ['stun:eu-turn4.xirsys.com'],
         },
         {
-          username: '3206137464fcc53e5b3786af',
-          credential: 'Gb3eoosJHMZA80CU',
+          username:
+            'ml0jh0qMKZKd9P_9C0UIBY2G0nSQMCFBUXGlk6IXDJf8G2uiCymg9WwbEJTMwVeiAAAAAF2__hNSaW5vbGVl',
+          credential: '4dd454a6-feee-11e9-b185-6adcafebbb45',
           urls: [
-            'turn:global.relay.metered.ca:80',
-            'turn:global.relay.metered.ca:80?transport=tcp',
-            'turn:global.relay.metered.ca:443',
-            'turns:global.relay.metered.ca:443?transport=tcp',
+            'turn:eu-turn4.xirsys.com:80?transport=udp',
+            'turn:eu-turn4.xirsys.com:3478?transport=tcp',
           ],
         },
       ],
     };
   },
+
+  // val adsds = [{"urls":"stun:stun.relay.metered.ca:80"},
+  // {"urls":"turn:global.relay.metered.ca:80","username":"3206137464fcc53e5b3786af","credential":"Gb3eoosJHMZA80CU"},
+  // {"urls":"turn:global.relay.metered.ca:80?transport=tcp","username":"3206137464fcc53e5b3786af","credential":"Gb3eoosJHMZA80CU"},
+  // {"urls":"turn:global.relay.metered.ca:443","username":"3206137464fcc53e5b3786af","credential":"Gb3eoosJHMZA80CU"},
+  // {"urls":"turns:global.relay.metered.ca:443?transport=tcp","username":"3206137464fcc53e5b3786af","credential":"Gb3eoosJHMZA80CU"}]
 
   addChat(data, senderType) {
     let chatMsgDiv = document.querySelector('#chat-messages');
