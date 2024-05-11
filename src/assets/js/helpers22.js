@@ -66,35 +66,17 @@ export default {
 
   getUserFullMedia() {
     if (this.userMediaAvailable()) {
-      //            return navigator.mediaDevices.getUserMedia( {
-      //                video: true,
-      //                audio: {
-      //                    echoCancellation: true,
-      //                    noiseSuppression: true
-      //                }
-      //            } );
-      var constraints = {
+      return navigator.mediaDevices.getUserMedia({
+        video: true,
         audio: {
           echoCancellation: true,
           noiseSuppression: true,
-          sampleSize: 16,
-          channelCount: 2,
         },
-        video: {
-          width: { min: 640, ideal: 800 },
-          height: { min: 400, ideal: 480 },
-          aspectRatio: { ideal: 1.7777777778 },
-          frameRate: { ideal: 10, max: 15 },
-          facingMode: 'environment',
-        },
-      };
-      return navigator.mediaDevices.getUserMedia(constraints);
+      });
     } else {
       throw new Error('User media not available');
     }
   },
-
-  //declare ideal values
 
   getUserAudio() {
     if (this.userMediaAvailable()) {
@@ -102,8 +84,6 @@ export default {
         audio: {
           echoCancellation: true,
           noiseSuppression: true,
-          sampleSize: 16,
-          channelCount: 2,
         },
       });
     } else {
@@ -132,16 +112,16 @@ export default {
     return {
       iceServers: [
         {
-          urls: ['stun:stun.54.208.95.26:3478'],
+          urls: ['stun:stun.relay.metered.ca:80'],
         },
         {
-          username: 'username1',
-          credential: '123456',
+          username: '3206137464fcc53e5b3786af',
+          credential: 'Gb3eoosJHMZA80CU',
           urls: [
-            'turn:54.208.95.26:3478',
-            //                        "turn:global.relay.metered.ca:80?transport=tcp",
-            //                        "turn:global.relay.metered.ca:443",
-            //                        "turns:global.relay.metered.ca:443?transport=tcp"
+            'turn:global.relay.metered.ca:80',
+            'turn:global.relay.metered.ca:80?transport=tcp',
+            'turn:global.relay.metered.ca:443',
+            'turns:global.relay.metered.ca:443?transport=tcp',
           ],
         },
       ],
