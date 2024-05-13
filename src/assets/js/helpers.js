@@ -87,7 +87,7 @@ export default {
             min: '200',
             max: '480',
           },
-          frameRate: { ideal: 10, max: 15 },
+          frameRate: { ideal: 30, max: 60 },
           facingMode: 'environment',
         },
       };
@@ -278,7 +278,6 @@ export default {
 
   setLocalStream(stream, mirrorMode = true) {
     const localVidElem = document.getElementById('local');
-
     localVidElem.srcObject = stream;
     mirrorMode
       ? localVidElem.classList.add('mirror-mode')
@@ -290,11 +289,11 @@ export default {
     let totalRemoteVideosDesktop = elem.length;
     let newWidth =
       totalRemoteVideosDesktop <= 2
-        ? '50%'
-        : totalRemoteVideosDesktop == 3
-        ? '33.33%'
-        : totalRemoteVideosDesktop <= 8
         ? '25%'
+        : totalRemoteVideosDesktop == 3
+        ? '25%'
+        : totalRemoteVideosDesktop <= 8
+        ? '20%'
         : totalRemoteVideosDesktop <= 15
         ? '20%'
         : totalRemoteVideosDesktop <= 18
@@ -304,7 +303,6 @@ export default {
         : totalRemoteVideosDesktop <= 32
         ? '12%'
         : '10%';
-
     for (let i = 0; i < totalRemoteVideosDesktop; i++) {
       elem[i].style.width = newWidth;
     }
